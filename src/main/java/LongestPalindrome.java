@@ -24,4 +24,7 @@ public class LongestPalindrome {
                 输入：s = "ac"
                 输出："a"
      */
+    public static String longestPalindrome() {
+        return null;
+    }
 }
