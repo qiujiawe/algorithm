@@ -85,13 +85,20 @@ public class LengthOfLongestSubstring {
             max = 1;
         // 遍历
         for (int i = 1; i < s.length(); i++) {
+            // 判断是否出现重复字符
             if (map.containsKey(s.charAt(i))) {
-                int index = map.get(s.charAt(i));
-                if (index >= slow) {
+                // 获取重复字符的下标
+                int subscript = map.get(s.charAt(i));
+                // 判断下标是否在慢指针左边
+                // 举个例子 aw[w]abc 这种情况下 重复字符 a 是无效的
+                if (subscript >= slow) {
+                    // 记录当前窗口中的元素个数
                     max = Math.max(max, i - slow);
-                    slow = index + 1;
+                    // 移动慢指针
+                    slow = subscript + 1;
                 }
             }
+            // 将元素添加进集合
             map.put(s.charAt(i), i);
         }
         return Math.max(max, s.length() - slow);
