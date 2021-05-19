@@ -78,8 +78,4 @@ public class MaxProfit {
         }
         return profit;
     }
-
-    public static void main(String[] args) {
-        System.out.println(maxProfit2(new int[]{1, 2, 3, 4, 5}));
-    }
 }

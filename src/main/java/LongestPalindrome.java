@@ -152,7 +152,4 @@ public class LongestPalindrome {
         return s.substring(b,e);
     }
 
-    public static void main(String[] args) {
-    }
-
 }

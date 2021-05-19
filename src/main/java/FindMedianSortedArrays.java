@@ -171,9 +171,4 @@ public class FindMedianSortedArrays {
         }
     }
 
-    public static void main(String[] args) {
-        // 0 | 0
-        // 0 | 0
-        System.out.println(findMedianSortedArrays2(new int[]{0, 0}, new int[]{0, 0}));
-    }
 }

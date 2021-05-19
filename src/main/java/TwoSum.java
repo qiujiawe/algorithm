@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -82,11 +81,4 @@ public class TwoSum {
         throw new IllegalArgumentException();
     }
 
-    /*
-        测试
-     */
-    public static void main(String[] args) {
-        int[] arr = new int[]{4, 4, 2, 3, 13, 12, 46};
-        System.out.println(Arrays.toString(twoSumOne(arr, 25)));
-    }
 }

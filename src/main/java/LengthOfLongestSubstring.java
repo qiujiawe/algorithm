@@ -137,9 +137,4 @@ public class LengthOfLongestSubstring {
         return ans;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring2("abbac"));
-    }
-
 }

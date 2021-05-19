@@ -72,18 +72,5 @@ public class AddTwoNumbers {
         return head;
     }
 
-    /*
-        测试
-     */
-    public static void main(String[] args) {
-        ListNode temp1 = new ListNode(3,null);
-        ListNode temp2 = new ListNode(4,temp1);
-        ListNode temp3 = new ListNode(4,null);
-        ListNode temp4 = new ListNode(6,temp3);
-        ListNode l1 = new ListNode(2,temp2);
-        ListNode l2 = new ListNode(5,temp4);
-        ListNode result = addTwoNumbers(l1,l2);
-        System.out.println(result);
-    }
 
 }
