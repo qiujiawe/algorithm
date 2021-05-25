@@ -43,20 +43,23 @@ public class ReverseList {
 
     /*
         暴力
+
+                                    pre
+                                          head
+                                          next
+                                     ↓     ↓
+        null <- 1  <-  2  <-  3  <-  4 -> null
+
      */
     public ListNode reverseList2(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode last = null,
-                curr = head,
-                next = head.next;
-        while (next != null) {
-            curr.next = last;
-            last = curr;
-            curr = next;
-            next = curr.next;
+        ListNode pre = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
         }
-        curr.next = last;
-        return curr;
+        return pre;
     }
 
 }
