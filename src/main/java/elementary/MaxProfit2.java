@@ -78,7 +78,7 @@ public class MaxProfit2 {
     /*
         暴力解法
             找到股票最低点x,买入 -prices[x]
-            买入后判断在那天卖出盈利最大
+            买入后判断在之后的日子里什么时候卖出盈利最大
      */
     public int maxProfit2(int[] prices) {
         int buy = Integer.MAX_VALUE,

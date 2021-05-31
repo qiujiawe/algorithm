@@ -1,8 +1,5 @@
 package elementary;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MaxSubArray {
     /*
         最大子序和
@@ -10,24 +7,51 @@ public class MaxSubArray {
      */
 
     /*
-        动态规划
+        穷举
      */
     public int maxSubArray(int[] nums) {
-        int len = nums.length;
-        Map<Integer, Map<Integer, Integer>> map = new HashMap<>(len);
-        int max = Integer.MIN_VALUE;
+        int len = nums.length,
+                last = 0,
+                max = Integer.MIN_VALUE;
         for (int i = 0; i < len; i++) {
-            map.put(i, new HashMap<>());
-            map.get(i).put(i, nums[i]);
-            max = Math.max(max, nums[i]);
-        }
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                if (!map.get(i).containsKey(j)) {
-                    map.get(i).put(j, nums[j] + map.get(i).get(j - 1));
-                }
-                max = Math.max(max, map.get(i).get(j));
+            for (int j = i; j < len; j++) {
+                last = i == j ? nums[j] : last + nums[j];
+                max = Math.max(max, last);
             }
+        }
+        return max;
+    }
+
+    /*
+        动态规划
+            1. 定义数组 dp[] , dp[i] 表示nums数组 0 ~ i 范围的最大子序和
+            2. 计算 dp[i] 需要判断dp[i-1]是大于0还是小于0
+                大于0: dp[i] = dp[i-1] + nums[i]
+                小于0: dp[i] = nums[i]
+     */
+    public int maxSubArray1(int[] nums) {
+        int len = nums.length,
+                max = nums[0];
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        for (int i = 1; i < len; i++) {
+            dp[i] = dp[i - 1] > 0 ? dp[i - 1] + nums[i] : nums[i];
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    /*
+        动态规划
+            优化
+     */
+    public int maxSubArray2(int[] nums) {
+        int len = nums.length,
+                max = nums[0],
+                curr = nums[0];
+        for (int i = 1; i < len; i++) {
+            curr = curr > 0 ? curr + nums[i] : nums[i];
+            max = Math.max(max, curr);
         }
         return max;
     }
